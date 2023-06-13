@@ -6,8 +6,8 @@ import time
 import re
 import pandas as pd
 
-GRAPHML_FILE = "polblogs.graphml"
-CSV_FILE = "fixed_SNAP_polblogs-edges.csv"
+GRAPHML_FILE = "price_10000nodes.graphml"
+CSV_FILE = "fixed_SNAP_price_10000nodes-edges.csv"
 CUDF_EDGELIST = cudf.read_csv(CSV_FILE,
                               names=["source", "target"],
                               dtype=["string", "string"],
@@ -67,8 +67,8 @@ def process_pickle_files():
         df = pd.read_pickle(file)
 
         # Get the parameters from the last two rows
-        params_initial = df.iloc[-1]['params']
-        params_best = df.iloc[-2]['params']
+        params_initial = df.iloc[0]['params']
+        params_best = df.iloc[-1]['params']
 
         # Calculate the layouts
         pos_df_initial = cuGraph_to_pos_df(CUGRAPH_GRAPH, *params_initial)
