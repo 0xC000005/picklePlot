@@ -6,8 +6,8 @@ import time
 import re
 import pandas as pd
 
-GRAPHML_FILE = "../sample_graphs/price_10000nodes.graphml"
-CSV_FILE = "../sample_graphs/fixed_SNAP_price_10000nodes-edges.csv"
+GRAPHML_FILE = "polblogs.graphml"
+CSV_FILE = "fixed_SNAP_polblogs-edges.csv"
 CUDF_EDGELIST = cudf.read_csv(CSV_FILE,
                               names=["source", "target"],
                               dtype=["string", "string"],
